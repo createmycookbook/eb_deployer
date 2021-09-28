@@ -14,12 +14,26 @@ namespace :eb do
   def eb_package_files
     ignore_file = File.join(Dir.pwd, ".ebdeployerignore")
     ignore_patterns = File.exists?(ignore_file) ? File.readlines(ignore_file).map(&:strip) : []
-    `git ls-files`.lines.reject { |f| ignore_patterns.any? { |p| File.fnmatch(p, f.strip) } }
+    `git ls-files`.lines.reject { |f| ignore_patterns.any? { |p| File.fnmatch(p, f.strip) } } + eb_other_include_files
+  end
+  # .ebdeployerinclude
+  # public/packs
+  # public/packs/*
+  # public/assets/*
+  def eb_other_include_files
+    include_file  = File.join(Dir.pwd, ".ebdeployerinclude")
+    include_patterns = File.exists?(include_file) ? File.readlines(include_file).map(&:strip) : []
+    Dir.glob(include_patterns).map { |i| i + "\n" }
   end
 
   desc "Remove the package file we generated."
   task :clean do
     sh "rm -rf #{eb_deployer_package}"
+  end
+
+  desc "Show package files"
+  task :show_package do
+    puts eb_package_files.join("\n")
   end
 
   desc "Build package for eb_deployer to deploy to a Ruby environment in tmp directory. It zips all file list by 'git ls-files'"
