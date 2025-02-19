@@ -10,7 +10,6 @@ require 'optparse'
 require 'erb'
 require 'fileutils'
 
-require 'eb_deployer/version'
 require 'eb_deployer/utils'
 require 'eb_deployer/aws_driver'
 require 'eb_deployer/deployment_strategy'
@@ -32,7 +31,7 @@ require 'eb_deployer/smoke_test'
 require 'eb_deployer/version_cleaner'
 
 module EbDeployer
-
+  VERSION = "0.7.0"
   #
   # Query ouput value of the cloud formation stack
   #
