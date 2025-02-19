@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/eb_deployer/version', __FILE__)
+require_relative "./lib/eb_deployer.rb"
 
 Gem::Specification.new do |gem|
   gem.authors       = ["wpc", "betarelease", "xli"]
