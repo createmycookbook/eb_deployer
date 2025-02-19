@@ -18,5 +18,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "eb_deployer"
   gem.require_paths = ["lib"]
-  gem.version       = EbDeployer::VERSION
+  gem.version       = "0.7.0"
 end
