@@ -1,6 +1,4 @@
 # -*- encoding: utf-8 -*-
-require_relative "./lib/eb_deployer.rb"
-
 Gem::Specification.new do |gem|
   gem.authors       = ["wpc", "betarelease", "xli"]
   gem.email         = ["alex.hal9000@gmail.com", "sudhindra.r.rao@gmail.com", 'swing1979@gmail.com']
